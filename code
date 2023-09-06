@@ -1,7 +1,7 @@
 function onOpen() {
   var ui = DocumentApp.getUi();
   ui.createMenu('Replace')
-    .addItem('Character conversion (oldcolor→newcolor)', 'replaceTextColor')
+    .addItem('Character conversion (orgcolor→newcolor)', 'replaceTextColor')
     .addToUi();
 }
 
