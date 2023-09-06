@@ -1,0 +1,22 @@
+function onOpen() {
+  var ui = DocumentApp.getUi();
+  ui.createMenu('Replace')
+    .addItem('Character conversion (oldcolor→newcolor)', 'replaceTextColor')
+    .addToUi();
+}
+
+function replaceTextColor() {
+  const org_color = "#ffffff"; // enter old color in hex code
+  const replace_color = "#808080"; // enter new color in hex code 
+  let app = DocumentApp.getUi();
+  let body = DocumentApp.getActiveDocument().getBody();
+  let obj = body.editAsText();
+  const text = body.getText();
+
+  for (let i = 0; i < text.length; i++) {
+    if (obj.getForegroundColor(i) == org_color) {
+      obj.setForegroundColor(i, i + 1, replace_color);
+      Logger.log("Change color: " + i);
+    }
+  }
+}
